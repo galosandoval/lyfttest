@@ -1,12 +1,9 @@
 import { useState } from "react";
 import axios from "axios";
 
-const initialStringToCut = {
-  string_to_cut: "",
-};
 
 export const Card = () => {
-  const [stringToCut, setStringToCut] = useState("");
+  const [stringToCut, setStringToCut] = useState({});
   const [cutString, setCutString] = useState("");
 
   const handleSubmit = (e) => {
