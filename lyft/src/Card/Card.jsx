@@ -12,7 +12,7 @@ export const Card = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("https://databackend.herokuapp.com//test", stringToCut)
+      .post("https://databackend.herokuapp.com/test", stringToCut)
       .then((res) => {
         setCutString(res.data);
       })
