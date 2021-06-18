@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
+import { StyledCard } from "./StyledCard";
 
 export const Card = () => {
   const [stringToCut, setStringToCut] = useState({});
@@ -21,11 +22,11 @@ export const Card = () => {
   };
 
   return (
-    <div>
+    <StyledCard>
       <div className="card-container">
         <div className="card">
           <h1>Lyft Test</h1>
-          <form onSubmit={handleSubmit}>
+          <form className="card-form" onSubmit={handleSubmit}>
             <input
               onChange={(e) => handleChange(e)}
               value={stringToCut.string_to_cut}
@@ -34,9 +35,9 @@ export const Card = () => {
             />
             <button type="submit">Cut</button>
           </form>
-          <h2>{cutString.return_string}</h2>
+          <h2>{cutString.return_string ? cutString.return_string : ""}</h2>
         </div>
       </div>
-    </div>
+    </StyledCard>
   );
 };
