@@ -28,14 +28,19 @@ export const Card = () => {
           <h1>Lyft Test</h1>
           <form className="card-form" onSubmit={handleSubmit}>
             <input
+              placeholder="iamyourlyftdriver"
+              autoComplete="off"
+              autoFocus
               onChange={(e) => handleChange(e)}
               value={stringToCut.string_to_cut}
               type="text"
               name="body"
             />
-            <button type="submit">Cut</button>
+            <button className="hide" type="submit">
+              Cut
+            </button>
           </form>
-          <h2>{cutString.return_string ? cutString.return_string : ""}</h2>
+          <h2>{cutString.return_string}</h2>
         </div>
       </div>
     </StyledCard>
