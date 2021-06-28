@@ -3,7 +3,6 @@ import axios from "axios";
 import $ from "jquery";
 
 import { StyledCard } from "./StyledCard";
-import { string } from "prop-types";
 
 const initialState = {
   string_to_cut: "",
