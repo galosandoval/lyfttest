@@ -47,6 +47,12 @@ export const StyledCard = styled.div`
     background-color: #9fe2bf;
     cursor: pointer;
   }
+  .disable {
+    background-color: grey;
+  }
+  .disable:hover {
+    background-color: grey;
+  }
   h2 {
     transition: all ease 1s;
   }

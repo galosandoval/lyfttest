@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import $ from "jquery";
 
 import { StyledCard } from "./StyledCard";
 
@@ -19,6 +20,11 @@ export const Card = () => {
 
   const handleChange = (e) => {
     setStringToCut({ ...stringToCut, string_to_cut: e.target.value });
+
+    console.log(stringToCut.stringToCut);
+    // if (stringToCut.string_to_cut.length < 3) {
+    //   $(".button")
+    // }
   };
 
   return (
@@ -31,12 +37,12 @@ export const Card = () => {
               placeholder="iamyourlyftdriver"
               autoComplete="off"
               autoFocus
-              onChange={(e) => handleChange(e)}
+              onChange={handleChange}
               value={stringToCut.string_to_cut}
               type="text"
               name="body"
             />
-            <button className="hide" type="submit">
+            <button disabled className="button hide" type="submit">
               Cut
             </button>
           </form>
