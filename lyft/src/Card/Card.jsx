@@ -1,10 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
+import $ from "jquery";
 
 import { StyledCard } from "./StyledCard";
+import { string } from "prop-types";
+
+const initialState = {
+  string_to_cut: "",
+};
 
 export const Card = () => {
-  const [stringToCut, setStringToCut] = useState({});
+  const [stringToCut, setStringToCut] = useState(initialState);
   const [cutString, setCutString] = useState("");
 
   const handleSubmit = (e) => {
@@ -18,8 +24,16 @@ export const Card = () => {
   };
 
   const handleChange = (e) => {
-    setStringToCut({ ...stringToCut, string_to_cut: e.target.value });
+    setStringToCut({ ...stringToCut, [e.target.name]: e.target.value });
   };
+
+  useEffect(() => {
+    if (stringToCut.string_to_cut.length < 3) {
+      $(".button").addClass("hide").attr("disabled", true);
+    } else {
+      $(".button").removeClass("hide").attr("disabled", false);
+    }
+  }, [stringToCut.string_to_cut]);
 
   return (
     <StyledCard>
@@ -28,14 +42,19 @@ export const Card = () => {
           <h1>Lyft Test</h1>
           <form className="card-form" onSubmit={handleSubmit}>
             <input
-              onChange={(e) => handleChange(e)}
+              placeholder="iamyourlyftdriver"
+              autoComplete="off"
+              autoFocus
+              onChange={handleChange}
               value={stringToCut.string_to_cut}
               type="text"
-              name="body"
+              name="string_to_cut"
             />
-            <button type="submit">Cut</button>
+            <button className="button hide" type="submit">
+              Cut
+            </button>
           </form>
-          <h2>{cutString.return_string ? cutString.return_string : ""}</h2>
+          <h2>{cutString.return_string}</h2>
         </div>
       </div>
     </StyledCard>

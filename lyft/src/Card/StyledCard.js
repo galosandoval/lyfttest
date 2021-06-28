@@ -47,6 +47,13 @@ export const StyledCard = styled.div`
     background-color: #9fe2bf;
     cursor: pointer;
   }
+  .hide {
+    background-color: rgb(125, 47, 125);
+
+  }
+  .hide:hover {
+    background-color: rgb(125, 47, 125);
+  }
   h2 {
     transition: all ease 1s;
   }
